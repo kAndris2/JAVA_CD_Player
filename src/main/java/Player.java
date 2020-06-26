@@ -3,6 +3,7 @@ public class Player {
     /*
     Cd cd = null;
     Writer writer = null;
+    SpotifyServer spotify = new SpotifyServer();
      */
 
     public void next() {
