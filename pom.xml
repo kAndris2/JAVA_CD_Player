@@ -8,5 +8,9 @@
     <artifactId>CD_Player</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.cource>8</maven.compiler.cource>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>
