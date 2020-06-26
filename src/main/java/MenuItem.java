@@ -1,5 +1,3 @@
-package mypackage;
-
 public class MenuItem {
     private String title;
     private Activity activity;
