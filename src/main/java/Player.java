@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class Player {
+    ArrayList<Song> songs = new ArrayList<Song>();
     Cd cd = null;
     Writer writer = null;
-    //PlayerMode pMode = null;
-    SpotifyServer spotify = new SpotifyServer();
-    ArrayList<Song> songs = new ArrayList<Song>();
+    PlayerMode pMode = null;
+    SpotifyServer spotify = null;
     Song currentSong = null;
 
     public void next() {
@@ -46,9 +46,11 @@ public class Player {
         this.cd = cd;
     }
 
-    /*
     public void setMode(PlayerMode mode) {
         pMode = mode;
+        if (mode.equals("Spotify")) {
+            spotify = new SpotifyServer();
+            songs = spotify.getTrackList();
+        }
     }
-     */
 }

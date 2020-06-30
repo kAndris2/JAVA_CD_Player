@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class ReadXML {
 
-    public ArrayList<Mp3Song> Read() {
-        ArrayList<Mp3Song> songs = new ArrayList<Mp3Song>();
+    public ArrayList<Song> Read() {
+        ArrayList<Song> songs = new ArrayList<Song>();
         try {
 
             File fXmlFile = new File("Songs.xml");
