@@ -1,32 +1,43 @@
-public class Player {
+import java.util.ArrayList;
 
-    /*
+public class Player {
     Cd cd = null;
     Writer writer = null;
+    //PlayerMode pMode = null;
     SpotifyServer spotify = new SpotifyServer();
-     */
+    ArrayList<Song> songs = new ArrayList<Song>();
+    Song currentSong = null;
 
     public void next() {
-
+        for (int i = 0; i < songs.size(); i++) {
+            if (songs.get(i).equals(currentSong)) {
+                currentSong = songs.get(i + 1);
+                break;
+            }
+        }
     }
 
     public void prev() {
-
+        for (int i = 0; i < songs.size(); i++) {
+            if (songs.get(i + 1).equals(currentSong)) {
+                currentSong = songs.get(i);
+                break;
+            }
+        }
     }
 
     public void show() {
-
+        currentSong.toString();
     }
 
     public void stop() {
-
+        currentSong = null;
     }
 
     public void start() {
-
+        currentSong = songs.get(0);
     }
 
-    /*
     public void setWriter(Writer writer) {
         this.writer = writer;
     }
@@ -35,8 +46,9 @@ public class Player {
         this.cd = cd;
     }
 
+    /*
     public void setMode(PlayerMode mode) {
-
+        pMode = mode;
     }
      */
 }

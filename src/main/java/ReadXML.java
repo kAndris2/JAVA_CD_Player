@@ -8,7 +8,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ReadXML {
-    public void Read() {
+
+    public ArrayList<Mp3Song> Read() {
+        ArrayList<Mp3Song> songs = new ArrayList<Mp3Song>();
         try {
 
             File fXmlFile = new File("Songs.xml");
@@ -16,32 +18,33 @@ public class ReadXML {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
 
-            //optional, but recommended
-            //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
             doc.getDocumentElement().normalize();
 
-            //System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-
             NodeList nList = doc.getElementsByTagName("song");
-
-            //System.out.println("----------------------------");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
                 Node nNode = nList.item(temp);
 
-                //System.out.println("\nCurrent Element :" + nNode.getNodeName());
-
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
                     Element eElement = (Element) nNode;
 
-                    System.out.println("Song title : " + eElement.getAttribute("title"));
-                    System.out.println("Song length : " + eElement.getAttribute("length"));
+                    songs.add
+                    (
+                        new Mp3Song
+                        (
+                                eElement.getAttribute("title"),
+                                Integer.parseInt(eElement.getAttribute("length")),
+                                Integer.parseInt(eElement.getAttribute("size"))
+                        )
+                    );
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return songs;
     }
 }

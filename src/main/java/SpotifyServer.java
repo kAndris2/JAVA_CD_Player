@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
 public class SpotifyServer {
-    ArrayList<Song> songs = new ArrayList<Song>();
+    ReadXML reader;
+    ArrayList<Mp3Song> songs;
 
     public SpotifyServer() {
-
+        reader =  new ReadXML();
+        songs = reader.Read();
     }
 
-    public ArrayList<Song> getTrackList() { return songs; }
+    public ArrayList<Mp3Song> getTrackList() { return songs; }
 }
