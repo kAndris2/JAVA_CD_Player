@@ -4,6 +4,6 @@ public class SpotifyServer {
 
     public ArrayList<Song> getTrackList()
     {
-        return new ReadXML().Read();
+        return new ReadXML().Read("Songs.xml");
     }
 }

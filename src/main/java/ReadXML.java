@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class ReadXML {
 
-    public ArrayList<Song> Read() {
+    public ArrayList<Song> Read(String filename) {
         ArrayList<Song> songs = new ArrayList<Song>();
         try {
 
-            File fXmlFile = new File("Songs.xml");
+            File fXmlFile = new File(filename);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
